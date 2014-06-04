@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shnack</string>
+    <string name="motto">Your Order Is Ready</string>
+    
+        
+    <string name="title_food">Food</string>
+    <string name="title_drinks">Drinks</string>
+    <string name="action_account">My Account</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_help">Help</string>
+    
+    <string name="food_cheese_pizza">Cheese Pizza</string>
+    <string name="food_peperoni_pizza">Peperoni Pizza</string>
+    <string name="food_combo_pizza">Combo Pizza</string>
+    <string name="food_hotdog">Hotdog</string>
+    <string name="food_chicken_bake">Chicken Bake</string>
+    
+    <string name="drink_coke">Coca Cola</string>
+    <string name="drink_diet_coke">Diet Coca Cola</string>
+    <string name="drink_sprite">Sprite</string>
+    <string name="drink_froyo">Frozen Yogurt</string>
+    
+    <string name="location_costco">Costco</string>
+    <string name="location_iv_deli">IV Deli</string>
+    <string name="location_dlg">DLG</string>
+    
+    <string-array name="location_array">
+        <item>Costco</item>
+        <item>DLG</item>
+        <item>IV Deli</item>
+    </string-array>
+    
+    
+
+</resources>
