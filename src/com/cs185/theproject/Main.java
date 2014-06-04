@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -22,13 +24,13 @@ public class Main extends ActionBarActivity {
 	private DialogFragment helpFrag = new HelpFragment();
 
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
         
 		Spinner spinner = (Spinner) findViewById(R.id.spinner_location);
+
 		// Create an ArrayAdapter using the string array and a default spinner layout
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
 		        R.array.location_array, android.R.layout.simple_spinner_item);
@@ -36,6 +38,7 @@ public class Main extends ActionBarActivity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
 		spinner.setAdapter(adapter);
+		
 	}
 
 	@Override
@@ -64,7 +67,6 @@ public class Main extends ActionBarActivity {
 		Intent intent = new Intent(this, MenuPage.class);
 		startActivity(intent);
 	}
-	
 	
 	/**
 	 * A placeholder fragment containing a simple view.
