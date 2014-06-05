@@ -11,7 +11,6 @@
     android:background="#f4f4f4" >
 
    
-
     <TextView
         android:id="@+id/section_label"
         android:layout_width="wrap_content"

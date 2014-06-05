@@ -25,8 +25,8 @@
         android:layout_width="fill_parent"
         android:layout_height="65px"
         android:gravity="center_vertical"
-        android:paddingLeft="20px"
-        android:text="ddddddddd"
+        android:paddingLeft="20px"        
+        android:text=""
         android:textColor="@android:color/black"
         android:textSize="16dp" />
 

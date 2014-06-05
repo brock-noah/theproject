@@ -43,6 +43,10 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 
 	private DialogFragment settingsFrag = new SettingsFragment();
 	private DialogFragment helpFrag = new HelpFragment();
+	public static int position = 0;
+	public static int sectionNumber = 0;
+
+	
 	
 	
 	SectionsPagerAdapter mSectionsPagerAdapter;
@@ -152,6 +156,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a PlaceholderFragment (defined as a static inner class
 			// below).
+			System.out.println("Before newInst called:position "+position);
 			return PlaceholderFragment.newInstance(position + 1);
 		}
 
@@ -183,35 +188,12 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		 * fragment.
 		 */
 		View rootView;
-	     ExpandableListAdapter mAdapter;
+	    ExpandableListAdapter mAdapter;
 
 	    ExpandableListView expListView;
 	    List<String> listDataHeader;
 	    HashMap<String, List<String>> listDataChild;
 	    Context con;
-
-		
-//	
-//		ExpandableListAdapter listAdapter;
-//	    ExpandableListView expListView;
-//	    List<String> listDataHeader;
-//	    HashMap<String, List<String>> listDataChild;
-	    
-//	    public void onCreate(Bundle savedInstanceState) {
-//			super.onCreate(savedInstanceState);
-//			setContentView(R.layout.fragment_menu);
-//			 expListView = (ExpandableListView) findViewById(R.id.elv);
-//		        // preparing list data
-//		        prepareListData();
-//		        listAdapter = new ExpandableListAdapter(getBaseContext(), listDataHeader, listDataChild);
-//		 
-//		        // setting list adapter
-//		        expListView.setAdapter(listAdapter);
-//			
-//	    }
-	    
-	    
-
 		
 
 		private static final String ARG_SECTION_NUMBER = "section_number";
@@ -222,6 +204,11 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		public static  PlaceholderFragment newInstance(int sectionNumber) {
 			PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
+			
+			System.out.println("Section Number "+ sectionNumber);
+			
+			
+			
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 			fragment.setArguments(args);
 			return fragment;
@@ -236,7 +223,8 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 			super.onCreate(savedInstanceState);
 			 rootView = inflater.inflate(R.layout.fragment_menu, container,
 					false);
-			
+				
+
 			TextView textView = (TextView) rootView
 					.findViewById(R.id.section_label);
 			textView.setText(Integer.toString(getArguments().getInt(
@@ -252,20 +240,38 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
 
 	         //here setting all the values to Parent and child classes
-	         prepareListData();//here get the
-	         con=getActivity();
-	         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
+	         System.out.println("sectionNum "+sectionNumber);
+	         if(sectionNumber == 0)
+	         { 
+		      prepareListData(1);//here get the
+		      sectionNumber++;
+		      con=getActivity();
+		         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
 
+		         lv.setAdapter(mAdapter);
+	         }
+	         else if(sectionNumber == 1)
+	         {
+			  prepareListData(2);//here get the
+			  con=getActivity();
+		         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
 
-	            lv.setAdapter(mAdapter);
+		         lv.setAdapter(mAdapter);
+			  
+	         }
+	         
 
 		}
-		private void prepareListData() {
-			
-			
+		private void prepareListData(int page_num) {
+		
 	        listDataHeader = new ArrayList<String>();
 	        listDataChild = new HashMap<String, List<String>>();
-	 
+	        
+	        System.out.println("Food  "+page_num);
+			if(page_num == 1)
+			{
+			System.out.println("Food ");
+		
 	        listDataHeader.add("Meals");
 	        listDataHeader.add("Snacks");
 	        listDataHeader.add("Candy");
@@ -296,6 +302,45 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	        listDataChild.put(listDataHeader.get(0), Meals); // Header, Child data
 	        listDataChild.put(listDataHeader.get(1), Snacks);
 	        listDataChild.put(listDataHeader.get(2), Candy);
+			}
+	        
+	        if(page_num == 2)
+			{
+				System.out.println("Drinks ");
+				
+				listDataHeader.add("Beer");
+		        listDataHeader.add("Soda");
+		        listDataHeader.add("Other Beverages");
+
+		        // Adding child data
+		        List<String> Beer = new ArrayList<String>();
+		        Beer.add("Budweiser");
+		        Beer.add("Heineken");
+		        Beer.add("805");
+		        Beer.add("Coors Light");
+		        Beer.add("Dog Fish Head");
+		        Beer.add("Delirium");
+		        
+		        List<String> Soda = new ArrayList<String>();
+		        Soda.add("Root Beer");
+		        Soda.add("Coke");
+		        Soda.add("Sprite");
+		        Soda.add("Dr. Pepper");
+		        Soda.add("Mountain Dew");
+		        Soda.add("Pepsi");
+
+		        List<String> OtherBeverages = new ArrayList<String>();
+		        OtherBeverages.add("Water");
+		        OtherBeverages.add("Coffee");
+		        OtherBeverages.add("Milk");
+		        OtherBeverages.add("Frozen Lemonade");
+
+		        
+		        listDataChild.put(listDataHeader.get(0), Beer); // Header, Child data
+		        listDataChild.put(listDataHeader.get(1), Soda); // Header, Child data
+		        listDataChild.put(listDataHeader.get(2), OtherBeverages);
+				
+			}
 	    }
 		
 		
