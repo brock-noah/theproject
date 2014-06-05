@@ -362,7 +362,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		        OtherBeverages.add("Milk");
 		        OtherBeverages.add("Frozen Lemonade");
 
-		        
+		       
 		        listDataChild.put(listDataHeader.get(0), Beer); // Header, Child data
 		        listDataChild.put(listDataHeader.get(1), Soda); // Header, Child data
 		        listDataChild.put(listDataHeader.get(2), OtherBeverages);

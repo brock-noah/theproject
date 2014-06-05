@@ -52,6 +52,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             final LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = infalInflater.inflate(R.layout.list_item, null);
+        }
+            
             ImageButton plus = (ImageButton)convertView.findViewById( R.id.imageButton1);
             ImageButton minus = (ImageButton)convertView.findViewById( R.id.imageButton2);
         
@@ -62,8 +64,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         plus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("plus from ExL"); 
-            	View a = infalInflater.inflate(R.layout.list_item,null);
-                TextView tv = (TextView) a.findViewById(R.id.textView1);
+            	//View a = infalInflater.inflate(R.layout.list_item,null);
+                TextView tv = (TextView) v.findViewById(R.id.textView1);
         		orderCount++;
         		System.out.println(orderCount);
         		tv.setText(Integer.toString(orderCount));
@@ -73,8 +75,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         minus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	System.out.println("minus from ExL");
-            	View a = infalInflater.inflate(R.layout.list_item,null);
-            	 TextView tv = (TextView) a.findViewById(R.id.textView1);
+            	//View a = infalInflater.inflate(R.layout.list_item,null);
+            	 TextView tv = (TextView) v.findViewById(R.id.textView1);
             	 if (orderCount == 0)
             	 {
             		 
@@ -86,7 +88,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
          		tv.setText(Integer.toString(orderCount));
                  }
         });
-    }
+    
 
  
         return convertView;
