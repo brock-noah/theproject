@@ -33,6 +33,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -50,6 +51,28 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	public static int position = 0;
 	public static int sectionNumber = 0;
 	public static int orderCount = 0;
+	
+	public  void displayCart(View v)
+	{
+//		System.out.println("YOO");
+//		AlertDialog.Builder ab = new AlertDialog.Builder(
+//                this);
+//        ab.setTitle("Your Order");
+//        ab
+//                .setMessage("HotDog 1")
+//                .setCancelable(false)
+//                .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        dialog.cancel();
+//                    }
+//                });
+//        AlertDialog aB = ab.create();
+//        aB.show();
+		Intent myIntent = new Intent(MenuPage.this, CartActivity.class);
+		//myIntent.putExtra("key", value); //Optional parameters
+		MenuPage.this.startActivity(myIntent);
+    
+	}
 
 	
 	
@@ -141,6 +164,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	{
 		
 		System.out.println("I clicked Plus!");
+		
 	}
 
 	@Override
@@ -191,9 +215,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		}
 	}
 	
-	public void displayCart(View view) {
-		return;
-	}
+	
 
 	/**
 	 * A placeholder fragment containing a simple view.
@@ -247,24 +269,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		}
 		
 		
-		public  void displayCart()
-		{
-			System.out.println("YOO");
-			AlertDialog.Builder ab = new AlertDialog.Builder(
-	                getActivity());
-	        ab.setTitle("Boom");
-	        ab
-	                .setMessage("Hello")
-	                .setCancelable(false)
-	                .setNegativeButton("Back", new DialogInterface.OnClickListener() {
-	                    public void onClick(DialogInterface dialog, int id) {
-	                        dialog.cancel();
-	                    }
-	                });
-	        AlertDialog aB = ab.create();
-	        aB.show();
-	    
-		}
+		
 
 		
 		@Override

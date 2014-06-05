@@ -22,6 +22,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     // child data in format of header title, child title
     private HashMap<String, List<String>> _listDataChild;
     public static int orderCount = 0;
+    public int getid = 0;
 
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<String>> listChildData) {
@@ -40,6 +41,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
+    
+ // our ViewHolder.
+    // caches our TextView
+    static class ViewHolder {
+        TextView text;
+        ImageButton plus;
+        ImageButton minus;
+
+    }
+  
 
     @Override
     public View getChildView(int groupPosition, final int childPosition,boolean isLastChild, View convertView, ViewGroup parent) {
@@ -47,16 +58,32 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
          final int childPos = childPosition;
         
         final String childText = (String) getChild(groupPosition, childPosition);
-
+        
+        
+         final ViewHolder holder;
+      
         if (convertView == null) {
             final LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = infalInflater.inflate(R.layout.list_item, null);
+             holder = new ViewHolder();
+             holder.text = (TextView) convertView.findViewById(R.id.list_item);
+             holder.plus = (ImageButton) convertView.findViewById(R.id.imageButton1);
+             holder.minus = (ImageButton) convertView.findViewById(R.id.imageButton2);
+             convertView.setTag(holder);
         }
-            
-            ImageButton plus = (ImageButton)convertView.findViewById( R.id.imageButton1);
-            ImageButton minus = (ImageButton)convertView.findViewById( R.id.imageButton2);
+//        else {
+//            ((ViewHolder) convertView.getTag()).text.setTag(groupPosition*100+childPosition);
+//            holder = (ViewHolder) convertView.getTag();
+//            getid = (Integer) holder.text.getTag();
+//            System.out.println("This is it "+getid);
+//            //check(getid , holder);  
+//         }
         
+        //((ViewHolder))
+//           
+        ImageButton plus = (ImageButton) convertView.findViewById(R.id.imageButton1);
+        ImageButton minus = (ImageButton) convertView.findViewById(R.id.imageButton2);
 
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.lblListItem);
@@ -117,10 +144,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public long getGroupId(int groupPosition) {
         return groupPosition;
     }
-
+    
+ 
+    
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
+      
         String headerTitle = (String) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
