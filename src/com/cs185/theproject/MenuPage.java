@@ -277,6 +277,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	         {
 			  prepareListData(2);//here get the
 			  con=getActivity();
+			  sectionNumber--;
 		         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
 		         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
 		         //ImageButton button = new ImageButton(getContext());
