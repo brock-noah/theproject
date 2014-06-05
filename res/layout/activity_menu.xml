@@ -3,4 +3,9 @@
     android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cs185.theproject.MenuPage" />
+    tools:context="com.cs185.theproject.MenuPage"     />
+    
+
+    
+    
+    

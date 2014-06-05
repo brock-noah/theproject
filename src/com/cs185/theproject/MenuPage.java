@@ -24,11 +24,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
+
 public class MenuPage extends ActionBarActivity implements ActionBar.TabListener{
 
 	private DialogFragment settingsFrag = new SettingsFragment();
 	private DialogFragment helpFrag = new HelpFragment();
-
+	
 	
 	SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -41,6 +56,8 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
+		 // get the listview
+       
 	
 	// Set up the action bar.
 			final ActionBar actionBar = getSupportActionBar();
@@ -77,6 +94,8 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 						.setTabListener(this));
 			}
 	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -105,6 +124,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
+		
 	}
 
 	@Override
@@ -157,17 +177,49 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment {
+	public static  class PlaceholderFragment extends Fragment {
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
 		 */
+		View rootView;
+	     ExpandableListAdapter mAdapter;
+
+	    ExpandableListView expListView;
+	    List<String> listDataHeader;
+	    HashMap<String, List<String>> listDataChild;
+	    Context con;
+
+		
+//	
+//		ExpandableListAdapter listAdapter;
+//	    ExpandableListView expListView;
+//	    List<String> listDataHeader;
+//	    HashMap<String, List<String>> listDataChild;
+	    
+//	    public void onCreate(Bundle savedInstanceState) {
+//			super.onCreate(savedInstanceState);
+//			setContentView(R.layout.fragment_menu);
+//			 expListView = (ExpandableListView) findViewById(R.id.elv);
+//		        // preparing list data
+//		        prepareListData();
+//		        listAdapter = new ExpandableListAdapter(getBaseContext(), listDataHeader, listDataChild);
+//		 
+//		        // setting list adapter
+//		        expListView.setAdapter(listAdapter);
+//			
+//	    }
+	    
+	    
+
+		
+
 		private static final String ARG_SECTION_NUMBER = "section_number";
 
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
-		public static PlaceholderFragment newInstance(int sectionNumber) {
+		public static  PlaceholderFragment newInstance(int sectionNumber) {
 			PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -179,16 +231,74 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+		public  View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_menu, container,
+			super.onCreate(savedInstanceState);
+			 rootView = inflater.inflate(R.layout.fragment_menu, container,
 					false);
+			
 			TextView textView = (TextView) rootView
 					.findViewById(R.id.section_label);
 			textView.setText(Integer.toString(getArguments().getInt(
 					ARG_SECTION_NUMBER)));
 			return rootView;
 		}
+		
+		@Override
+	    public void onActivityCreated(Bundle savedInstanceState) {
+	        // TODO Auto-generated method stub
+
+	        super.onActivityCreated(savedInstanceState);
+	         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
+
+	         //here setting all the values to Parent and child classes
+	         prepareListData();//here get the
+	         con=getActivity();
+	         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
+
+
+	            lv.setAdapter(mAdapter);
+
+		}
+		private void prepareListData() {
+			
+			
+	        listDataHeader = new ArrayList<String>();
+	        listDataChild = new HashMap<String, List<String>>();
+	 
+	        listDataHeader.add("Meals");
+	        listDataHeader.add("Snacks");
+	        listDataHeader.add("Candy");
+
+	        // Adding child data
+	        List<String> Meals = new ArrayList<String>();
+	        Meals.add("Cheese Pizza");
+	        Meals.add("Pepperoni Pizza");
+	        Meals.add("Bean & Cheese Burrito");
+	        Meals.add("Chick Filet");
+	        Meals.add("Nachos");
+	        Meals.add("Hot Dog");
+
+	        List<String> Snacks = new ArrayList<String>();
+	        Snacks.add("Chips");
+	        Snacks.add("Cookie");
+	        Snacks.add("Popcorn");
+	        Snacks.add("Peanuts");
+	        Snacks.add("Kracker Jacks");
+
+	        List<String> Candy = new ArrayList<String>();
+	        Candy.add("Twizzler");
+	        Candy.add("Butterfinger");
+	        Candy.add("Reeses");
+	        Candy.add("Hot Tamales");
+	        Candy.add("Twix");
+
+	        listDataChild.put(listDataHeader.get(0), Meals); // Header, Child data
+	        listDataChild.put(listDataHeader.get(1), Snacks);
+	        listDataChild.put(listDataHeader.get(2), Candy);
+	    }
+		
+		
 	}
 
 
