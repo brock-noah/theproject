@@ -178,6 +178,10 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 			return null;
 		}
 	}
+	
+	public void displayCart(View view) {
+		return;
+	}
 
 	/**
 	 * A placeholder fragment containing a simple view.
@@ -225,10 +229,8 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 					false);
 				
 
-			TextView textView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			textView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
+			//TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+			//textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
 			return rootView;
 		}
 		
