@@ -27,6 +27,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.zip.Inflater;
 
 import android.app.Activity;
 import android.content.Context;
@@ -37,6 +38,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MenuPage extends ActionBarActivity implements ActionBar.TabListener{
@@ -45,6 +47,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	private DialogFragment helpFrag = new HelpFragment();
 	public static int position = 0;
 	public static int sectionNumber = 0;
+	public static int orderCount = 0;
 
 	
 	
@@ -61,6 +64,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu);
 		 // get the listview
+		
        
 	
 	// Set up the action bar.
@@ -130,6 +134,12 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		mViewPager.setCurrentItem(tab.getPosition());
 		
 	}
+	
+	public void increment(View view)
+	{
+		
+		System.out.println("I clicked Plus!");
+	}
 
 	@Override
 	public void onTabUnselected(ActionBar.Tab tab,
@@ -198,8 +208,11 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	    List<String> listDataHeader;
 	    HashMap<String, List<String>> listDataChild;
 	    Context con;
-		
-
+	    ImageButton plus;
+	    ImageButton minus;
+	    
+	   
+	   
 		private static final String ARG_SECTION_NUMBER = "section_number";
 
 		/**
@@ -210,9 +223,6 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 			Bundle args = new Bundle();
 			
 			System.out.println("Section Number "+ sectionNumber);
-			
-			
-			
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 			fragment.setArguments(args);
 			return fragment;
@@ -239,7 +249,16 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	        // TODO Auto-generated method stub
 
 	        super.onActivityCreated(savedInstanceState);
-	         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
+	        //setContentView(R.layout.fragment_menu);
+             plus = (ImageButton) rootView.findViewById( R.id.imageButton1);
+             minus = (ImageButton)rootView.findViewById( R.id.imageButton2);
+            
+//            plus.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//                System.out.println("Yo");                }
+//            });
+        
+            
 
 	         //here setting all the values to Parent and child classes
 	         System.out.println("sectionNum "+sectionNumber);
@@ -249,18 +268,23 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		      sectionNumber++;
 		      con=getActivity();
 		         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
-
+		         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
+			     System.out.println("id "+mAdapter.getChildId(1,2));
 		         lv.setAdapter(mAdapter);
+		             
 	         }
 	         else if(sectionNumber == 1)
 	         {
 			  prepareListData(2);//here get the
 			  con=getActivity();
 		         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
-
+		         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
+		         //ImageButton button = new ImageButton(getContext());
+		         
+			     System.out.println("id "+mAdapter.getChildId(1,2));
 		         lv.setAdapter(mAdapter);
-			  
 	         }
+	         
 	         
 
 		}

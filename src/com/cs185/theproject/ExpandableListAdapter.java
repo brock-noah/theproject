@@ -2,14 +2,17 @@ package com.cs185.theproject;
 
 import android.content.Context;
 import android.widget.BaseExpandableListAdapter;
+
 import java.util.HashMap;
 import java.util.List;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
@@ -18,6 +21,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<String>> _listDataChild;
+    public static int orderCount = 0;
 
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<String>> listChildData) {
@@ -38,23 +42,58 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
-                             boolean isLastChild, View convertView, ViewGroup parent) {
-
+    public View getChildView(int groupPosition, final int childPosition,boolean isLastChild, View convertView, ViewGroup parent) {
+    	 final int grpPos = groupPosition;
+         final int childPos = childPosition;
+        
         final String childText = (String) getChild(groupPosition, childPosition);
 
         if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this._context
+            final LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = infalInflater.inflate(R.layout.list_item, null);
-        }
+            ImageButton plus = (ImageButton)convertView.findViewById( R.id.imageButton1);
+            ImageButton minus = (ImageButton)convertView.findViewById( R.id.imageButton2);
+        
 
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.lblListItem);
-
         txtListChild.setText(childText);
+        plus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("plus from ExL"); 
+            	View a = infalInflater.inflate(R.layout.list_item,null);
+                TextView tv = (TextView) a.findViewById(R.id.textView1);
+        		orderCount++;
+        		System.out.println(orderCount);
+        		tv.setText(Integer.toString(orderCount));
+                
+                }
+        });
+        minus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	System.out.println("minus from ExL");
+            	View a = infalInflater.inflate(R.layout.list_item,null);
+            	 TextView tv = (TextView) a.findViewById(R.id.textView1);
+            	 if (orderCount == 0)
+            	 {
+            		 
+            	 }
+            	 else  orderCount--;
+
+         		
+        		System.out.println(orderCount);
+         		tv.setText(Integer.toString(orderCount));
+                 }
+        });
+    }
+
+ 
         return convertView;
     }
+    
+           
+           
 
     @Override
     public int getChildrenCount(int groupPosition) {
