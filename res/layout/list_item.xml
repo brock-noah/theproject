@@ -35,7 +35,6 @@
             android:layout_height="25dp"
             android:layout_alignBottom="@+id/lblListItem"
             android:layout_alignParentRight="true"
-            android:onClick = "increment"
             android:src="@drawable/plus" />
 
         <ImageButton

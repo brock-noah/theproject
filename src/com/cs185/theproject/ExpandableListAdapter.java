@@ -68,7 +68,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 TextView tv = (TextView) v.findViewById(R.id.textView1);
         		orderCount++;
         		System.out.println(orderCount);
-        		tv.setText(Integer.toString(orderCount));
+        		//tv.setText(Integer.toString(orderCount));
                 
                 }
         });
@@ -85,7 +85,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
          		
         		System.out.println(orderCount);
-         		tv.setText(Integer.toString(orderCount));
+         		//tv.setText(Integer.toString(orderCount));
                  }
         });
     

@@ -30,7 +30,9 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -230,19 +232,40 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 
 		public PlaceholderFragment() {
 		}
-
+		
+		
 		@Override
 		public  View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			 rootView = inflater.inflate(R.layout.fragment_menu, container,
 					false);
-				
-
+			 
 			//TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 			//textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
 			return rootView;
 		}
+		
+		
+		public  void displayCart()
+		{
+			System.out.println("YOO");
+			AlertDialog.Builder ab = new AlertDialog.Builder(
+	                getActivity());
+	        ab.setTitle("Boom");
+	        ab
+	                .setMessage("Hello")
+	                .setCancelable(false)
+	                .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+	                    public void onClick(DialogInterface dialog, int id) {
+	                        dialog.cancel();
+	                    }
+	                });
+	        AlertDialog aB = ab.create();
+	        aB.show();
+	    
+		}
+
 		
 		@Override
 	    public void onActivityCreated(Bundle savedInstanceState) {
