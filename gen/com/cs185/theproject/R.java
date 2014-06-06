@@ -989,16 +989,13 @@ containing a value of this type.
         public static final int plus=0x7f020059;
         public static final int welcome=0x7f02005a;
         public static final int welcome0=0x7f02005b;
+        public static final int welcome1=0x7f02005c;
     }
     public static final class id {
-<<<<<<< HEAD
-        public static final int action_account=0x7f050050;
-=======
         public static final int ButtonViewCart=0x7f050048;
         public static final int ListViewCatalog=0x7f050047;
         public static final int TextView01=0x7f050046;
-        public static final int action_account=0x7f050054;
->>>>>>> fb17feaace3a76c3702574c60d17621d87b585ea
+        public static final int action_account=0x7f050053;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1006,17 +1003,13 @@ containing a value of this type.
         public static final int action_bar_root=0x7f05001a;
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
-        public static final int action_cart=0x7f050053;
+        public static final int action_cart=0x7f050056;
         public static final int action_context_bar=0x7f05001d;
         public static final int action_help=0x7f050055;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-<<<<<<< HEAD
-        public static final int action_settings=0x7f050051;
-=======
-        public static final int action_settings=0x7f050053;
->>>>>>> fb17feaace3a76c3702574c60d17621d87b585ea
+        public static final int action_settings=0x7f050054;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1069,7 +1062,7 @@ containing a value of this type.
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
-        public static final int spinner_location=0x7f050042;
+        public static final int spinner_location=0x7f050044;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int subtotal=0x7f05004b;
@@ -1080,8 +1073,8 @@ containing a value of this type.
         public static final int top_action_bar=0x7f050020;
         public static final int tv_app_name=0x7f05003d;
         public static final int tv_currloc=0x7f050040;
-        public static final int tv_diffloc=0x7f050043;
-        public static final int tv_hardcore=0x7f050044;
+        public static final int tv_diffloc=0x7f050042;
+        public static final int tv_hardcore=0x7f050043;
         public static final int tv_motto=0x7f05003e;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;

@@ -4,7 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/welcome1"
     tools:context="com.cs185.theproject.Main$PlaceholderFragment" >
 
     <TextView
@@ -38,77 +41,60 @@
         android:layout_marginBottom="25dp"
         android:src="@drawable/ic_launcher" />
     
-      <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
-        android:background="#CCC" >
 
-    <TextView
-        android:id="@+id/tv_currloc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:paddingBottom="10dp"
-        android:text="Is your location..."
-        android:textColor="#8B0000" />
-
-  
-
-        <Button
-            android:id="@+id/button_go"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:onClick="myMethod"
-            android:text="Go" />
-=======
-        android:text="Is your location..." />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+        
+            <TextView
+        android:id="@+id/tv_currloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:text="Is your location..."
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#8B0000" />
 
 	     <Button
 	         android:id="@+id/button_go"
-	         style="?android:attr/buttonStyleSmall"
-	         android:layout_width="wrap_content"
+	         android:layout_width="60dp"
 	         android:layout_height="wrap_content"
 	         android:layout_alignParentRight="true"
 	         android:layout_alignParentTop="true"
 	         android:onClick="myMethod"
 	         android:text="Go" />
->>>>>>> fb17feaace3a76c3702574c60d17621d87b585ea
+
+	    <TextView
+	        android:id="@+id/tv_diffloc"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/button_go"
+	        android:text="Select a different location..."
+	       	android:textStyle="bold"
+	       	        android:textSize="18dp"
+	       	
+	        android:textColor="#8B0000" />
+	
+	    <TextView
+	        android:id="@+id/tv_hardcore"
+	        android:layout_width="135dp"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/tv_diffloc"
+	        android:layout_alignParentLeft="true"
+	        android:textStyle="bold"
+	                android:textSize="22dp"
+	        
+	        android:text="@string/location_costco" />
+    
+	</RelativeLayout>
 
     <Spinner
         android:id="@+id/spinner_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
         android:gravity="bottom" />
-
-    <TextView
-        android:id="@+id/tv_diffloc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_go"
-        android:text="Select a different location..."
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#8B0000" />
-
-    <TextView
-        android:id="@+id/tv_hardcore"
-        android:layout_width="135dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_diffloc"
-        android:layout_alignParentLeft="true"
-        android:text="@string/location_costco"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-            </RelativeLayout>
-    
 
 </LinearLayout>
