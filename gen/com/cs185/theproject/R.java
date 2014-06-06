@@ -17,7 +17,8 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class array {
-        public static final int location_array=0x7f0c0000;
+        public static final int location_array=0x7f0c0001;
+        public static final int sports_array=0x7f0c0000;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -985,11 +986,11 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
-        public static final int minus=0x7f020058;
-        public static final int plus=0x7f020059;
-        public static final int welcome=0x7f02005a;
-        public static final int welcome0=0x7f02005b;
-        public static final int welcome1=0x7f02005c;
+        public static final int logo=0x7f020058;
+        public static final int minus=0x7f020059;
+        public static final int plus=0x7f02005a;
+        public static final int welcome=0x7f02005b;
+        public static final int welcome0=0x7f02005c;
     }
     public static final class id {
         public static final int ButtonViewCart=0x7f050048;

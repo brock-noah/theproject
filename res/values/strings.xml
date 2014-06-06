@@ -20,6 +20,14 @@
         <string name="content_help">Currently you are helpless.</string>
         <string name="content_settings">Currently no settings to adjust.</string>
             <string name="content">Some filler Content</string>
+            
+        <string-array name="sports_array">
+        <item>Hot Dog..........................$5.99</item>
+        <item>Heineken.........................$3.99</item>
+        <item>Total............................$9.98</item>
+        
+       
+    </string-array>
         
     
     
