@@ -48,6 +48,8 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 
 	private DialogFragment settingsFrag = new SettingsFragment();
 	private DialogFragment helpFrag = new HelpFragment();
+	private DialogFragment detailFrag = new HelpFragment();
+
 	public static int position = 0;
 	public static int sectionNumber = 0;
 	public static int orderCount = 0;
@@ -213,6 +215,23 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 			}
 			return null;
 		}
+	}
+	
+	public void displayDetails(View view) {
+		AlertDialog.Builder ab = new AlertDialog.Builder(
+              this);
+      ab.setTitle("Your Order");
+      ab
+              .setMessage("HotDog 1")
+              .setCancelable(false)
+              .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int id) {
+                      dialog.cancel();
+                  }
+              });
+      AlertDialog aB = ab.create();
+     aB.show();
+	
 	}
 	
 	

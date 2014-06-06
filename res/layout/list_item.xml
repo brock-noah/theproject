@@ -17,17 +17,37 @@
  -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+     >
+    
+    
+
 
     <TextView
         android:id="@+id/lblListItem"
         android:layout_width="fill_parent"
-        android:layout_height="65px"
+        android:layout_height="75px"
         android:gravity="center_vertical"
         android:paddingLeft="20px"        
         android:textColor="@android:color/black"
         android:textSize="16dp" />
+    
+
+    
+    <TextView
+        android:id="@+id/lblListInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="20px"        
+        android:textColor="@android:color/black"
+        android:textSize="14dp"
+        android:textStyle="italic"
+        android:layout_alignBottom="@id/lblListItem"
+        android:text="0.00" />
+    
+    
 
         <ImageButton
             android:id="@+id/imageButton1"
@@ -55,5 +75,15 @@
             android:layout_toLeftOf="@+id/imageButton1"
             android:text="   0"
             android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/lblListItem"
+            android:layout_marginRight="27dp"
+            android:layout_toLeftOf="@+id/imageButton2"
+            android:src="@drawable/info"
+            android:onClick="displayDetails" />
 
 </RelativeLayout>
