@@ -17,9 +17,9 @@
     <RelativeLayout
         android:id="@+id/fixed"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:background="#CCC"
+        android:background="#8B0000"
         android:gravity="center" >
 
         <TextView
@@ -27,31 +27,34 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Subtotal"
-            android:paddingRight="5dp"
-            android:textColor="#000"
-            android:textSize="20sp" />
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:textStyle="bold"
+            android:textColor="#CCC"
+            android:textSize="20sp"
+            android:gravity="center_vertical" />
         
         <TextView
             android:id="@+id/subtotal_value"
             android:tag="subtotal_value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             
             android:layout_alignParentRight="true"
         	android:layout_toRightOf="@id/subtotal"
-        	
+        	android:gravity="center_vertical"
             android:text="$20.99"
-            android:textColor="#000"
+            android:textColor="#CCC"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/review"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="Review Order"
+            android:text="Cart"
+            android:gravity="center_vertical"
             android:onClick="displayCart" />
         
     </RelativeLayout>

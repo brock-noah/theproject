@@ -9,13 +9,13 @@ import android.support.v4.app.DialogFragment;
 public class SettingsFragment extends DialogFragment{
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 	    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-	    /*builder.setTitle(R.string.settings_title).setMessage(R.string.settings_content)
+	    builder.setTitle(R.string.action_settings).setMessage(R.string.content_settings)
 	    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener(){
 			@Override
 			public void onClick(DialogInterface arg0, int arg1) {
 				dismiss();
 			}
-	    });*/
+	    });
 	    return builder.create();
 	}
 }
