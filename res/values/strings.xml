@@ -4,6 +4,8 @@
     <string name="app_name">Shnack</string>
   
         <string name="the_menu">Menu</string>
+                <string name="the_cart">Your Cart</string>
+        
     
     <string name="motto">Your Order Is Ready</string>
     

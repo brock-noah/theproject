@@ -220,11 +220,16 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	public void displayDetails(View view) {
 		AlertDialog.Builder ab = new AlertDialog.Builder(
               this);
-      ab.setTitle("Your Order");
+      ab.setTitle("Lorem Ipsum");
       ab
-              .setMessage("HotDog 1")
+              .setMessage("Dolor sit amet, consectetuer adipiscing elit sed diam nonummy nibh euismod.\nTincidunt ut laoreet dolore.\nContains nuts.")
               .setCancelable(false)
               .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int id) {
+                      dialog.cancel();
+                  }
+              })
+              .setPositiveButton("Add to Cart", new DialogInterface.OnClickListener() {
                   public void onClick(DialogInterface dialog, int id) {
                       dialog.cancel();
                   }
