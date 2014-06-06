@@ -30,7 +30,10 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -48,6 +51,28 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	public static int position = 0;
 	public static int sectionNumber = 0;
 	public static int orderCount = 0;
+	
+	public  void displayCart(View v)
+	{
+//		System.out.println("YOO");
+//		AlertDialog.Builder ab = new AlertDialog.Builder(
+//                this);
+//        ab.setTitle("Your Order");
+//        ab
+//                .setMessage("HotDog 1")
+//                .setCancelable(false)
+//                .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        dialog.cancel();
+//                    }
+//                });
+//        AlertDialog aB = ab.create();
+//        aB.show();
+		Intent myIntent = new Intent(MenuPage.this, CartActivity.class);
+		//myIntent.putExtra("key", value); //Optional parameters
+		MenuPage.this.startActivity(myIntent);
+    
+	}
 
 	
 	
@@ -139,6 +164,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	{
 		
 		System.out.println("I clicked Plus!");
+		
 	}
 
 	@Override
@@ -189,9 +215,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		}
 	}
 	
-	public void displayCart(View view) {
-		return;
-	}
+	
 
 	/**
 	 * A placeholder fragment containing a simple view.
@@ -230,19 +254,23 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 
 		public PlaceholderFragment() {
 		}
-
+		
+		
 		@Override
 		public  View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			 rootView = inflater.inflate(R.layout.fragment_menu, container,
 					false);
-				
-
+			 
 			//TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 			//textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
 			return rootView;
 		}
+		
+		
+		
+
 		
 		@Override
 	    public void onActivityCreated(Bundle savedInstanceState) {
@@ -277,6 +305,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 	         {
 			  prepareListData(2);//here get the
 			  con=getActivity();
+			  sectionNumber--;
 		         mAdapter=new ExpandableListAdapter(con,listDataHeader, listDataChild) ; //here i didnt set list values to this adoptor
 		         ExpandableListView lv = (ExpandableListView) rootView.findViewById(R.id.elv);
 		         //ImageButton button = new ImageButton(getContext());
@@ -361,7 +390,7 @@ public class MenuPage extends ActionBarActivity implements ActionBar.TabListener
 		        OtherBeverages.add("Milk");
 		        OtherBeverages.add("Frozen Lemonade");
 
-		        
+		       
 		        listDataChild.put(listDataHeader.get(0), Beer); // Header, Child data
 		        listDataChild.put(listDataHeader.get(1), Soda); // Header, Child data
 		        listDataChild.put(listDataHeader.get(2), OtherBeverages);

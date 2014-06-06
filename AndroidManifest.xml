@@ -32,6 +32,15 @@
             android:value="com.cs185.theproject.MainActivity" />
     </activity>
     
+    <activity
+        android:name="com.cs185.theproject.CartActivity"
+        android:label="@string/the_menu"
+        android:parentActivityName="com.cs185.theproject.CartActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.cs185.theproject.MenuActivity" />
+    </activity>
+    
     </application>
 
 </manifest>

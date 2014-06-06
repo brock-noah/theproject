@@ -47,6 +47,7 @@
         android:id="@+id/tv_currloc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:paddingBottom="10dp"
         android:text="Is your location..."
         android:textColor="#8B0000" />
@@ -62,6 +63,23 @@
             android:layout_alignParentTop="true"
             android:onClick="myMethod"
             android:text="Go" />
+=======
+        android:text="Is your location..." />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+	     <Button
+	         android:id="@+id/button_go"
+	         style="?android:attr/buttonStyleSmall"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_alignParentRight="true"
+	         android:layout_alignParentTop="true"
+	         android:onClick="myMethod"
+	         android:text="Go" />
+>>>>>>> fb17feaace3a76c3702574c60d17621d87b585ea
 
     <Spinner
         android:id="@+id/spinner_location"
