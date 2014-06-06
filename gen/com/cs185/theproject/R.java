@@ -986,19 +986,13 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
-<<<<<<< HEAD
-        public static final int logo=0x7f020058;
-=======
         public static final int info=0x7f020058;
->>>>>>> dev/bn_item
-        public static final int minus=0x7f020059;
-        public static final int plus=0x7f02005a;
-        public static final int welcome=0x7f02005b;
-        public static final int welcome0=0x7f02005c;
-<<<<<<< HEAD
-=======
-        public static final int welcome1=0x7f02005d;
->>>>>>> dev/bn_item
+        public static final int logo=0x7f020059;
+        public static final int minus=0x7f02005a;
+        public static final int plus=0x7f02005b;
+        public static final int welcome=0x7f02005c;
+        public static final int welcome0=0x7f02005d;
+        public static final int welcome1=0x7f02005e;
     }
     public static final class id {
         public static final int ButtonViewCart=0x7f050048;
@@ -1012,7 +1006,6 @@ containing a value of this type.
         public static final int action_bar_root=0x7f05001a;
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
-        public static final int action_cart=0x7f050058;
         public static final int action_context_bar=0x7f05001d;
         public static final int action_help=0x7f050057;
         public static final int action_menu_divider=0x7f050016;
